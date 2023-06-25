@@ -34,7 +34,7 @@
 <div class="container-custom">
   <div class="hero">
     <div class="hero-bg">
-      <button mat-raised-button color="accent" class="btn btn-outline-success position-relative top-50 mt-5">View Menu</button>
+      <button color="accent" class="btn btn-outline-success position-relative top-50 mt-5">View Menu</button>
 
 
     </div>
@@ -43,19 +43,20 @@
 
   <div class="specials mt-4">
     <h2 class="fs-1 lead font-monospace">Specials</h2>
-    <div class="cards row">
-      <app-special-cards role="button" *ngFor="let i of specialItems" class="col-sm-4" [itemName]="i.name" [imgUrl]="i.imgUrl" (click)="openItem()" ></app-special-cards>
+    <div class=" row">
+      <app-special-cards role="button" *ngFor="let i of specialItems" class="col-sm-4" [itemName]="i.name" [imgUrl]="i.imgUrl" (click)="openItem(i.name,i.desc)" ></app-special-cards>
     </div>
   </div>
 
   <div class="row">
 
     <div class="col-md-6 p-5">
-      <h2 class="font-monospace text-center">Online Delivery</h2>
-      <p >Order your favorite dishes online and get them delivered to your doorstep.</p> 
+      <h2 class="font-monospace text-center fs-1">Home Delivery</h2>
+      <p class="fs-5">Order your favorite dishes online and get them delivered to your doorstep.</p> 
     </div>
-
-    <img src="../assets/delivery.jpeg" class="col-md-6 p-5" alt="">
+    <div class="col-md-6 p-5">
+      <img src="../assets/delivery.jpeg" class="border border-dark rounded-4" height="400vh" alt="delivery boy">
+    </div>
   </div>
 </div>
 
@@ -63,14 +64,15 @@
   <div class="footer-content row">
     <div class="footer-logo col">
       <img src="../assets/logo.jpeg" alt="Restaurant Logo" >
+      <p class="font-monospace fs-5 d-inline ms-1">MyRestaurant</p>
     </div>
     <div class="footer-location col">
       <i class="fa-solid fa-location-dot"></i>
       <p class="d-inline"> Police Bazaar, Shillong, Meghalaya</p>
-      <a href="" class="d-block text-sm">  View in map</a>
+      <a href="" class="d-block text-sm">  Visit Now</a>
 
     </div>
-    <div class="footer-social col">
+    <div class="d-flex footer-social col justify-content-end">
       <a href="#"><i class="fa-brands fa-facebook"></i></a>
       <a href="#"><i class="fab fa-twitter"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
