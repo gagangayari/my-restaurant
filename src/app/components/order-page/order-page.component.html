@@ -1,0 +1,164 @@
+
+<div class="accordion m-auto " id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Order Basket
+        </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <ng-container *ngTemplateOutlet="customizeOrder"></ng-container>
+        
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Address
+        </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <ng-container *ngTemplateOutlet="address"></ng-container>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Payment
+        </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <ng-container *ngTemplateOutlet="payment"></ng-container>
+        
+        </div>
+    </div>
+</div>
+
+<ng-template #customizeOrder>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <mat-card class="order-card">
+            <mat-card-header>
+                <mat-card-title>Order Item</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="../../../assets/adam-kool-ndN00KmbJ1c-unsplash.jpeg" alt="Item Image">
+            <mat-card-content>
+                <div class="form-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput type="number" id="quantity" [(ngModel)]="quantity" (ngModelChange)="updatePrice()">
+                </mat-form-field>
+                </div>
+                <div class="form-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Price</mat-label>
+                    <input matInput type="number" id="price" [(ngModel)]="price" disabled>
+                </mat-form-field>
+                </div>
+                <div class="form-group">
+                <label for="coupon">Apply Coupon</label>
+                <mat-form-field appearance="fill">
+                    <mat-label>Coupon</mat-label>
+                    <input matInput type="text" id="coupon" [(ngModel)]="coupon" (ngModelChange)="applyCoupon()">
+                </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-raised-button (click)="onBuyNow()"> Next </button>
+            </mat-card-actions>
+            </mat-card>
+        </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #address>
+    <form #addressForm="ngForm" (ngSubmit)="submitAddress(addressForm)">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" name="firstName" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" name="lastName" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="addressLine1">Address Line 1</label>
+            <input type="text" class="form-control" id="addressLine1" name="addressLine1" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="addressLine2">Address Line 2</label>
+            <input type="text" class="form-control" id="addressLine2" name="addressLine2" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" name="city" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state" name="state" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="postalCode">Postal Code</label>
+            <input type="text" class="form-control" id="postalCode" name="postalCode" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" class="form-control" id="country" name="country" ngModel required>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+    </form>      
+
+</ng-template>
+
+<ng-template #payment>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <mat-card class="payment-card">
+              <mat-card-header>
+                <mat-card-title>Select a payment method</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="form-group">
+                  <mat-radio-group [(ngModel)]="selectedMethod">
+                    <mat-radio-button value="card">Debit/Credit Card</mat-radio-button>
+                    <mat-radio-button value="upi">UPI</mat-radio-button>
+                    <mat-radio-button value="internetBanking">Internet Banking</mat-radio-button>
+                    <mat-radio-button value="cod">Cash on Delivery</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div *ngIf="selectedMethod === 'card'">
+                  <!-- Card Payment Form -->
+                  <h4>Debit/Credit Card Payment</h4>
+                  <!-- Add your card payment form fields here -->
+                </div>
+                <div *ngIf="selectedMethod === 'upi'">
+                  <!-- UPI Payment Form -->
+                  <h4>UPI Payment</h4>
+                  <!-- Add your UPI payment form fields here -->
+                </div>
+                <div *ngIf="selectedMethod === 'internetBanking'">
+                  <!-- Internet Banking Payment Form -->
+                  <h4>Internet Banking Payment</h4>
+                  <!-- Add your internet banking payment form fields here -->
+                </div>
+                <div *ngIf="selectedMethod === 'cod'">
+                  <!-- Cash on Delivery Payment Form -->
+                  <h4>Cash on Delivery</h4>
+                  <!-- Add your Cash on Delivery payment form fields here -->
+                </div>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-raised-button (click)="finallyProceed()">Proceed >></button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+</ng-template>
+
+
+  

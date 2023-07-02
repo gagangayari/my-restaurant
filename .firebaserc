@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "my-restaurant-ce2f0"
+  },
+  "targets": {
+    "my-restaurant-ce2f0": {
+      "hosting": {
+        "my-restaurant": [
+          "my-restaurant-ce2f0"
+        ]
+      }
+    }
+  }
+}

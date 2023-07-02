@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand footer-logo font-monospace fs-4" href="#"> <img src="../assets/logo.jpeg" alt="logo image" class="me-2">MyRestaurant</a>
+    <a class="navbar-brand footer-logo font-monospace fs-4" routerLink="/home"> <img src="../assets/logo.jpeg" alt="logo image" class="me-2">MyRestaurant</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,58 +25,14 @@
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <button *ngIf="!authSvc.isLoggedIn" class="btn btn-outline-success" type="submit" (click)="$event.preventDefault();login()">Login</button>
+
     </div>
   </div>
 </nav>
 
-<div class="container-custom">
-  <div class="hero">
-    <div class="hero-bg">
-      <button color="accent" class="btn btn-outline-success position-relative top-50 mt-5">View Menu</button>
+<!-- <app-order-page></app-order-page> -->
 
-
-    </div>
-
-  </div>
-
-  <div class="specials mt-4">
-    <h2 class="fs-1 lead font-monospace">Specials</h2>
-    <div class=" row">
-      <app-special-cards role="button" *ngFor="let i of specialItems" class="col-sm-4" [itemName]="i.name" [imgUrl]="i.imgUrl" (click)="openItem(i.name,i.desc)" ></app-special-cards>
-    </div>
-  </div>
-
-  <div class="row">
-
-    <div class="col-md-6 p-5">
-      <h2 class="font-monospace text-center fs-1">Home Delivery</h2>
-      <p class="fs-5">Order your favorite dishes online and get them delivered to your doorstep.</p> 
-    </div>
-    <div class="col-md-6 p-5">
-      <img src="../assets/delivery.jpeg" class="border border-dark rounded-4" height="400vh" alt="delivery boy">
-    </div>
-  </div>
-</div>
-
-<footer class="footer">
-  <div class="footer-content row">
-    <div class="footer-logo col">
-      <img src="../assets/logo.jpeg" alt="Restaurant Logo" >
-      <p class="font-monospace fs-5 d-inline ms-1">MyRestaurant</p>
-    </div>
-    <div class="footer-location col">
-      <i class="fa-solid fa-location-dot"></i>
-      <p class="d-inline"> Police Bazaar, Shillong, Meghalaya</p>
-      <a href="" class="d-block text-sm">  Visit Now</a>
-
-    </div>
-    <div class="d-flex footer-social col justify-content-end">
-      <a href="#"><i class="fa-brands fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-  </div>
-</footer>
+<router-outlet></router-outlet>
 

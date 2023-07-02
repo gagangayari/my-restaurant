@@ -10,14 +10,32 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { SpecialCardsComponent } from './components/special-cards/special-cards.component';
 import { MenuItemDescComponent } from './components/menu-item-desc/menu-item-desc.component'
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button'
+import {MatButtonModule} from '@angular/material/button';
+import { LoginComponent } from './components/login/login.component'
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
+
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore'
+import { AngularFireModule } from '@angular/fire/compat';
+import { OrderPageComponent } from './components/order-page/order-page.component';
+import { HomeComponent } from './components/home/home.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SpecialCardsComponent,
-    MenuItemDescComponent
+    MenuItemDescComponent,
+    LoginComponent,
+    OrderPageComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +44,16 @@ import {MatButtonModule} from '@angular/material/button'
     MatCardModule,
     MatToolbarModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatRadioModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideAuth(() => getAuth()),
+    // provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
