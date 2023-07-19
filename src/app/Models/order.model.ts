@@ -6,6 +6,7 @@ export interface Order {
 
 
 export interface OrderDetials {
+    orderId : string;
     quantity: number;
     itemName: string;  //Restricts to available items in the DB
     price: number;

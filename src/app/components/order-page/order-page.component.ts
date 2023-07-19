@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Order } from 'src/app/Models/order.model';
+import {OrderSvcService} from '../../services/orders/order-svc.service'
 
 @Component({
   selector: 'app-order-page',
@@ -7,7 +8,6 @@ import { Order } from 'src/app/Models/order.model';
   styleUrls: ['./order-page.component.scss']
 })
 export class OrderPageComponent {
-
   price : number = 500;
   quantity : number = 1;
   coupon : string = '';
@@ -17,6 +17,10 @@ export class OrderPageComponent {
 
   //Order object
   order : Order;
+
+  constructor(private orderService : OrderSvcService){
+
+  }
 
   checkValidCoupon(coupon :string): boolean{
     if(coupon == "coupon"){
@@ -53,7 +57,7 @@ export class OrderPageComponent {
   }
 
   finallyProceed(){
-    // this.order = '';
+    // this.orderService.addOrder();
 
   }
 

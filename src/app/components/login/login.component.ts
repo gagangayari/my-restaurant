@@ -19,15 +19,6 @@ export class LoginComponent {
     this.authSvc.login();
     event.preventDefault();
 
-  }
-
-  
-
-
-
-
-  
-
-  
+  }  
 
 }

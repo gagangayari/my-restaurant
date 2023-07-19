@@ -22,6 +22,8 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore'
 import { AngularFireModule } from '@angular/fire/compat';
+// import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 import { OrderPageComponent } from './components/order-page/order-page.component';
 import { HomeComponent } from './components/home/home.component';
 
@@ -50,10 +52,11 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule,
     MatRadioModule,
     AngularFireModule.initializeApp(environment.firebase),
+    // AngularFirestoreModule,
     
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideAuth(() => getAuth()),
-    // provideFirestore(() => getFirestore())
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

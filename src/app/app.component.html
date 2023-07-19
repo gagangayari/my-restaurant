@@ -27,7 +27,8 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       </form>
       <button *ngIf="!authSvc.isLoggedIn" class="btn btn-outline-success" type="submit" (click)="$event.preventDefault();login()">Login</button>
-
+      <i *ngIf="authSvc.isLoggedIn" type="button" class="fa-solid fa-circle-user" (click)="logout()"></i>
+      <!-- <button *ngIf="authSvc.isLoggedIn" class="btn btn-outline-success" type="submit" (click)="$event.preventDefault();logout()">Log Out</button> -->
     </div>
   </div>
 </nav>

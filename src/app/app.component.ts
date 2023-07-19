@@ -40,6 +40,10 @@ export class AppComponent implements OnInit {
       console.log("After Closed", result);
       
     })
-    
+  }
+
+  logout(){
+    this.authSvc.logout();
+
   }
 }
