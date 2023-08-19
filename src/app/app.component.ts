@@ -1,7 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
-import { MenuItemDescComponent } from './components/menu-item-desc/menu-item-desc.component';
 import { LoginComponent } from './components/login/login.component';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
@@ -33,13 +32,12 @@ export class AppComponent implements OnInit {
 
   login(){
     const dialogRef = this.dialog.open(LoginComponent,{
-      height: "500px",
     })
 
-    dialogRef.afterClosed().subscribe((result)=>{
-      console.log("After Closed", result);
+    // dialogRef.afterClosed().subscribe((result)=>{
+    //   console.log("After Closed", result);
       
-    })
+    // })
   }
 
   logout(){

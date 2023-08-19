@@ -5,17 +5,30 @@
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <mat-form-field>
-          <input matInput placeholder="Username" name="username" required>
+          <input matInput placeholder="Username" formControlName="username" required>
         </mat-form-field>
   
         <mat-form-field>
-          <input matInput placeholder="Password" name="password" type="password" required>
+          <input matInput placeholder="Password" formControlName="password" type="password" required>
         </mat-form-field>
-  
-        <button mat-raised-button mat-dialog-close color="primary" type="submit" (click)="submit($event)">Login</button>
+
+
+        <mat-form-field *ngIf="registerForm">
+          <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password" required>
+        </mat-form-field>
       </form>
     </mat-card-content>
-  </mat-card>
+    <mat-card-actions>
+      <button *ngIf="!registerForm" mat-raised-button mat-dialog-close color="primary" type="submit" (click)="submit($event)">Login</button>
+      <button *ngIf="registerForm" mat-raised-button mat-dialog-close color="primary" type="submit" (click)="signUp()">SignUp</button>
+      <div class="ms-5 ps-5 d-flex flex-column align-items-end ">
+        <a href="#">Trouble Signing In ?</a>
+        <a href="#" role="button" (click)="$event.preventDefault();doSignUp()">Register New User</a>
+      </div>
+    </mat-card-actions>
+
+</mat-card>
+
   

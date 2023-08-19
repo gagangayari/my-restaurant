@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService implements OnChanges{
+export class AuthService {
+
 
   isLoggedIn: boolean = false;
 
@@ -18,12 +19,6 @@ export class AuthService implements OnChanges{
     
 
   }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("OnChanges", changes);
-    
-  }
-
   authState() {
     console.log("Oninit", this.isLoggedIn);
     
@@ -45,25 +40,62 @@ export class AuthService implements OnChanges{
   }
 
 
-  async login(){
+  async login(username: string , password: string): Promise<void> {
     console.log('Login');    
-    await this.auth.signInWithEmailAndPassword('xyz@gmail.com','xyz@123')
+    return await this.auth.signInWithEmailAndPassword(username,password)
     .then((info) => {
       this.isLoggedIn = true;
       console.log("user info: " + info.user?.uid);
       
       console.log("correct ",info.user?.displayName);
+      localStorage.setItem('user', JSON.stringify(info.user?.uid));
       
     })
     .catch((err) => {
+      this.isLoggedIn = false;
       console.log("here ",err);
     })
+
+    
+
+
+  }
+
+  async signUp(username: string, password: string): Promise<void>{
+    this.auth.createUserWithEmailAndPassword(username,password)
+    .then((info) => {
+      console.log("Successfully signed up", info);
+      
+
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      if (errorCode == 'auth/weak-password') {
+        alert('The password is too weak.');
+      } else {
+        alert(errorMessage);
+      }
+
+    });
+
   }
 
   async logout(){
     let temp = await this.auth.signOut();
     console.log("Signed out", temp);
+    localStorage.clear()
     
   }
+
+  
+  public get isLoggedInf() : boolean {
+    //User details should be stored in local storage
+    const user = JSON.parse(localStorage.getItem('user')!)
+    //Considered logged in when user is present in local storage
+    return user != null
+  }
+  
 
 }

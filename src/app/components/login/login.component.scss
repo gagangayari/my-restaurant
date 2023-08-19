@@ -1,0 +1,15 @@
+form {
+    display: flex;
+    flex-direction: column;
+    // width: 25em;
+}
+
+mat-card {
+    height: 28em;
+    padding: 10px;
+    border-radius: 5px;
+    width: fit-content ;
+    mat-card-actions {
+        margin-top: 2em;
+    }
+}

@@ -26,14 +26,23 @@
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       </form>
-      <button *ngIf="!authSvc.isLoggedIn" class="btn btn-outline-success" type="submit" (click)="$event.preventDefault();login()">Login</button>
-      <i *ngIf="authSvc.isLoggedIn" type="button" class="fa-solid fa-circle-user" (click)="logout()"></i>
-      <!-- <button *ngIf="authSvc.isLoggedIn" class="btn btn-outline-success" type="submit" (click)="$event.preventDefault();logout()">Log Out</button> -->
+      <button *ngIf="!authSvc.isLoggedIn" class="btn btn-outline-success" type="submit" (click)="$event.preventDefault();login()">Login/Sign Up</button>
+      <ul class="dropdown temp">
+        <i *ngIf="authSvc.isLoggedIn" role="button" class="fa-solid fa-circle-user me-4" data-bs-toggle="dropdown"></i>
+        <ul class="dropdown-menu end-50">
+          <li >
+            <a href="" class="dropdown-item" role="button">My Profile</a>
+          </li>
+          <li >
+            <a href="" class="dropdown-item" role="button" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      </ul>
+
     </div>
   </div>
 </nav>
 
-<!-- <app-order-page></app-order-page> -->
 
 <router-outlet></router-outlet>
 

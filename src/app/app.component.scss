@@ -9,7 +9,10 @@
 }
 
 i{
-  // height: 50px;
-  // width: 45px;
   scale: 1.5;
+}
+
+::ng-deep .dropdown-menu[data-bs-popper] {
+  left: -100px;
+
 }

@@ -1,5 +1,5 @@
-import { Component, Inject, Input } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -15,7 +15,11 @@ export class MenuItemDescComponent {
   isLoggedIn: boolean = true;
 
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private router: Router, private authSvc: AuthService){
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any, 
+    private router: Router, 
+    private authSvc: AuthService,
+    private dialogRef: MatDialogRef<MenuItemDescComponent>){
     this.menuItemName = this.data.title;
     this.menuDescription = this.data.description;
 
@@ -23,6 +27,7 @@ export class MenuItemDescComponent {
 
   orderNow(){
     console.log("Order");
+    this.dialogRef.close();
 
     if(!this.authSvc.isLoggedIn){
       console.log("Not logged in");

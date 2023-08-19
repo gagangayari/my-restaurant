@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 export class SpecialCardsComponent {
 
   @Input() itemName = '';
-  @Input() imgUrl: string = "../assets/alex-haney-CAhjZmVk5H4-unsplash.jpg";
+  @Input() imgUrl: string = "../assets/alex-haney-CAhjZmVk5H4-unsplashLarge.jpeg";
 }

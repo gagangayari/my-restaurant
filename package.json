@@ -5,8 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:stats": "ng build --stats-json",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "bundle-report": "webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +25,7 @@
     "@angular/router": "^16.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "webpack-bundle-analyzer": "^4.9.0",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
