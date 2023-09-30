@@ -27,13 +27,12 @@ export class MenuItemDescComponent {
 
   orderNow(){
     console.log("Order");
-    this.dialogRef.close();
 
     if(!this.authSvc.isLoggedIn){
       console.log("Not logged in");
       this.isLoggedIn = false;
       
-      window.Error("Please login")
+      // window.Error("Please login")
     }
 
     else{

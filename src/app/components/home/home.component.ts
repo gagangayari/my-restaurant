@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuItemDescComponent } from '../menu-item-desc/menu-item-desc.component';
 import { MatDialog } from '@angular/material/dialog';
-
+// import {gsap} from 'gsap' 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

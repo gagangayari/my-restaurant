@@ -30,8 +30,6 @@ import { OrderPageComponent } from './components/order-page/order-page.component
 import { HomeComponent } from './components/home/home.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

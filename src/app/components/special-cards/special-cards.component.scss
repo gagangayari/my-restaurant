@@ -3,7 +3,7 @@
       margin: 1rem ;
       // width: 80vw;
       border-radius: 25px;
-      border: .5px solid;
+      // border: .5px solid;
       overflow: hidden;
 
       .card-image {
@@ -15,4 +15,14 @@
       mat-card-content {
         text-align: left;
       }
+    }
+
+
+
+    mat-card:hover{
+      transform: scale(1.1);
+    }
+
+    mat-card{
+      transition: transform 100ms ease;
     }

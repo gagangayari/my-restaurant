@@ -9,21 +9,21 @@
   
     </div>
   
-    <div class="specials mt-4">
+    <div class="specials mt-4 container">
       <h2 class="fs-1 lead font-monospace">Specials</h2>
       <div class=" row">
         <app-special-cards role="button" *ngFor="let i of specialItems" class="col-sm-4" [itemName]="i.name" [imgUrl]="i.imgUrl" (click)="openItem(i.name,i.desc)" ></app-special-cards>
       </div>
     </div>
   
-    <div class="row">
+    <div class="container d-flex">
   
       <div class="col-md-6 p-5">
         <h2 class="font-monospace text-center fs-1">Home Delivery</h2>
         <p class="fs-5">Order your favorite dishes online and get them delivered to your doorstep.</p> 
       </div>
-      <div class="col-md-6 p-5">
-        <img src="../assets/deliveryLarge.jpeg" class="border border-dark rounded-4" height="400vh" alt="delivery boy">
+      <div class="col-md-6 p-5 del-img">
+        <img src="../assets/delivery-svg.svg" class=" rounded-4 img-fluid" alt="delivery boy">
       </div>
     </div>
   </div>

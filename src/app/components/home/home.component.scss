@@ -6,7 +6,8 @@
     justify-content: center;
     // min-height: 100vh;
   }
-  
+
+
   
   .hero {
     text-align: center;
@@ -119,5 +120,18 @@
       width:50px;
       height: fit-parent;
     }
+  }
+
+  .del-img img{
+    // border: 2px solid #140101;
+    // padding: 50px;
+    // max-width: 500px;
+  }
+
+  @media (min-width: 1400px) {
+    .container{
+      max-width: 1400px;
+    }
+    
   }
   
