@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand footer-logo font-monospace fs-4" routerLink="/home"> <img src="../assets/logo.jpeg" alt="logo image" class="me-2">MyRestaurant</a>
+    <a class="navbar-brand footer-logo font-monospace fs-4" routerLink="/home"> <img src="../assets/logo.jpeg" alt="logo image" class="me-2">Grab&Eat</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,9 +23,9 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex" role="search">
+      <!-- <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      </form>
+      </form> -->
       <button *ngIf="!authSvc.isLoggedIn" class="btn btn-outline-success" type="submit" (click)="$event.preventDefault();login()">Login/Sign Up</button>
       <ul class="dropdown temp">
         <i *ngIf="authSvc.isLoggedIn" role="button" class="fa-solid fa-circle-user me-4" data-bs-toggle="dropdown"></i>
