@@ -21,7 +21,7 @@
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button *ngIf="!registerForm" mat-raised-button mat-dialog-close color="primary" type="submit" (click)="submit($event)">Login</button>
+      <button *ngIf="!registerForm" mat-raised-button mat-dialog-close color="primary" (click)="submit($event)">Login</button>
       <button *ngIf="registerForm" mat-raised-button mat-dialog-close color="primary" type="submit" (click)="signUp()">SignUp</button>
       <div class="ms-5 ps-5 d-flex flex-column align-items-end ">
         <a href="#">Trouble Signing In ?</a>

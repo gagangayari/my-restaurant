@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from './components/login/login.component';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
+// import { MessagingService } from './app.messaging.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,13 @@ export class AppComponent implements OnInit {
 
 
 
-  constructor(private dialog: MatDialog, private route: Router, public authSvc: AuthService){
+
+  constructor(
+    private dialog: MatDialog, 
+    private route: Router, 
+    public authSvc: AuthService,
+    // private messageService: MessagingService
+    ){
   }
 
   ngOnInit(): void {
@@ -34,10 +41,10 @@ export class AppComponent implements OnInit {
     const dialogRef = this.dialog.open(LoginComponent,{
     })
 
-    // dialogRef.afterClosed().subscribe((result)=>{
-    //   console.log("After Closed", result);
+    dialogRef.afterClosed().subscribe((result)=>{
+      // console.log("After Closed", this.messageService.token);
       
-    // })
+    })
   }
 
   logout(){
