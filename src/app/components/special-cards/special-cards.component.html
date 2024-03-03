@@ -1,6 +1,6 @@
 <div class="card-container d-flex justify-content-center w-100">
   <mat-card *ngFor="let item of items" class="card" >
-    <img src="{{imgUrl}}" alt="Special Item 1" class="card-image img-fluid mb-3">
+    <img src="{{item.imgUrl}}" alt="Special Item 1" class="card-image img-fluid mb-3">
     <mat-card-content >
       <div class="first-row d-flex justify-content-between">
       <h3 class="fs-5 lead text-nowrap text-center mb-3 me-4 ">{{item.itemName}}</h3>
@@ -17,3 +17,5 @@
       <button mat-button color="primary" (click)="openItem(item.itemName, item.desc)">Order now</button>
     </mat-card-actions>
 </mat-card>
+
+</div>
