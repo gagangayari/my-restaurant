@@ -11,13 +11,12 @@
   
     <div class="specials mt-4 container">
       <h2 class="fs-1 lead font-monospace">Specials</h2>
-      <div class=" row">
-        <app-special-cards role="button" *ngFor="let i of specialItems" class="col-sm-4" [itemName]="i.name" [imgUrl]="i.imgUrl" (click)="openItem(i.name,i.desc)" ></app-special-cards>
+      <div class="container row">
+        <app-special-cards role="button" class="border border-danger" ></app-special-cards>
       </div>
     </div>
   
     <div class="container row">
-  
       <div class="col-sm-12 col-md-6 p-5">
         <h2 class="font-monospace text-center fs-1">Home Delivery</h2>
         <p class="fs-5">Order your favorite dishes online and get them delivered to your doorstep.</p> 

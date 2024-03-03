@@ -34,16 +34,10 @@ export class HomeComponent {
       
     }
   ]
-  openItem(itemName: string, description: string){
-    console.log("Opened", itemName);
-    const dialogRef = this.dialog.open(MenuItemDescComponent,{
-      data:{
-        title : itemName,
-        description: description
-      },
-  
-    })
-    
+
+  openItem(){
+
   }
+ 
 
 }
