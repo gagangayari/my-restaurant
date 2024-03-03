@@ -1,4 +1,4 @@
-import { Injectable} from '@angular/core';
+import { Injectable, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AngularFireAuth} from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 
@@ -40,8 +40,9 @@ export class AuthService {
   }
 
 
-  login(username: string , password: string){
-    return this.auth.signInWithEmailAndPassword(username,password)
+  async login(username: string , password: string): Promise<void> {
+    console.log('Login');    
+    return await this.auth.signInWithEmailAndPassword(username,password)
     .then((info) => {
       this.isLoggedIn = true;
       console.log("user info: " + info.user?.uid);

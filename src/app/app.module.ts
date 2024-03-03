@@ -21,19 +21,14 @@ import {ReactiveFormsModule} from '@angular/forms'
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-// import { provideAuth,getAuth, connectAuthEmulator } from '@angular/fire/auth';
-// import { provideFirestore,getFirestore } from '@angular/fire/firestore'
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore'
 import { AngularFireModule } from '@angular/fire/compat';
+// import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 import { OrderPageComponent } from './components/order-page/order-page.component';
 import { HomeComponent } from './components/home/home.component';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
-
-import { AngularFireAuthModule, USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/compat/auth';
-import { USE_EMULATOR as USE_FUNCTIONS_EMULATOR } from '@angular/fire/compat/functions'
-// import {USE_EMULATOR as USE_FIRESTORE_EMULATOR} from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [
@@ -45,8 +40,6 @@ import { USE_EMULATOR as USE_FUNCTIONS_EMULATOR } from '@angular/fire/compat/fun
     HomeComponent
   ],
   imports: [
-    HttpClientModule,
-    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -60,28 +53,15 @@ import { USE_EMULATOR as USE_FUNCTIONS_EMULATOR } from '@angular/fire/compat/fun
     MatRadioModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     
     // AngularFirestoreModule,
     
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideAuth(() => {
-    //   const auth = getAuth();
-    //   if(environment.useEmulator){
-    //     console.log("LOCAL")
-
-    //     connectAuthEmulator(auth,"http://127.0.0.1:9099",)
-    //   }
-    //   return auth;
-
-    // }),
-    // provideFirestore(() => getFirestore())
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
-  providers: [
-    {provide : USE_AUTH_EMULATOR, useValue: environment.useEmulator? ['http://127.0.0.1:9099'] : undefined},
-    {provide : USE_FUNCTIONS_EMULATOR, useValue: environment.useEmulator? ['http://127.0.0.1:5001'] : undefined},
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

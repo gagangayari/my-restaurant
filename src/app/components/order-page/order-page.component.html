@@ -35,118 +35,80 @@
 </div>
 
 <ng-template #customizeOrder>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">
-            <h5 class="card-title">Order Item</h5>
-          </div>
-          <img class="card-img-top" src="../../../assets/adam-kool-ndN00KmbJ1c-unsplashLarge.jpeg" alt="Item Image">
-          <div class="card-body">
-            <div class="form-group">
-              <label for="quantity">Quantity</label>
-              <input class="form-control" type="number" id="quantity" [(ngModel)]="quantity" (ngModelChange)="updatePrice()">
-            </div>
-            <div class="form-group">
-              <label for="price">Price</label>
-              <input class="form-control" type="number" id="price" [(ngModel)]="price" disabled>
-            </div>
-            <div class="form-group">
-              <label for="coupon">Apply Coupon</label>
-              <div class="input-group">
-                <input class="form-control" type="text" id="coupon" [(ngModel)]="coupon" (ngModelChange)="applyCoupon()">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary" type="button">Apply</button>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <mat-card class="order-card">
+            <mat-card-header>
+                <mat-card-title>Order Item</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="../../../assets/adam-kool-ndN00KmbJ1c-unsplashLarge.jpeg" alt="Item Image">
+            <mat-card-content>
+                <div class="form-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput type="number" id="quantity" [(ngModel)]="quantity" (ngModelChange)="updatePrice()">
+                </mat-form-field>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-primary btn-block" (click)="onBuyNow()">Next</button>
-          </div>
+                <div class="form-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Price</mat-label>
+                    <input matInput type="number" id="price" [(ngModel)]="price" disabled>
+                </mat-form-field>
+                </div>
+                <div class="form-group">
+                <label for="coupon">Apply Coupon</label>
+                <mat-form-field appearance="fill">
+                    <mat-label>Coupon</mat-label>
+                    <input matInput type="text" id="coupon" [(ngModel)]="coupon" (ngModelChange)="applyCoupon()">
+                </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-raised-button (click)="onBuyNow()"> Next </button>
+            </mat-card-actions>
+            </mat-card>
         </div>
-      </div>
+        </div>
     </div>
-  </div>
-  
 </ng-template>
 
 <ng-template #address>
     <form #addressForm="ngForm" (ngSubmit)="submitAddress(addressForm)">
-      <div class="container">
-        <form>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" ngModel required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" ngModel required>
-              </div>
-            </div>
-          </div>
-          
-          <div class="form-group">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" name="firstName" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" name="lastName" ngModel required>
+        </div>
+        <div class="form-group">
             <label for="addressLine1">Address Line 1</label>
             <input type="text" class="form-control" id="addressLine1" name="addressLine1" ngModel required>
           </div>
-          
           <div class="form-group">
             <label for="addressLine2">Address Line 2</label>
             <input type="text" class="form-control" id="addressLine2" name="addressLine2" ngModel>
           </div>
-          
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="city">City</label>
-                <input type="text" class="form-control" id="city" name="city" ngModel required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="state">State</label>
-                <input type="text" class="form-control" id="state" name="state" ngModel required>
-              </div>
-            </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" name="city" ngModel required>
           </div>
-      
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="postalCode">Postal Code</label>
-                <input type="text" class="form-control" id="postalCode" name="postalCode" ngModel required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="country">Country</label>
-                <input type="text" class="form-control" id="country" name="country" ngModel required>
-              </div>
-            </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state" name="state" ngModel required>
           </div>
-
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="contact">Contact</label>
-                <input type="number" class="form-control" id="contact" name="contact" ngModel required>
-              </div>
-            </div>
+          <div class="form-group">
+            <label for="postalCode">Postal Code</label>
+            <input type="text" class="form-control" id="postalCode" name="postalCode" ngModel required>
           </div>
-          
+          <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" class="form-control" id="country" name="country" ngModel required>
+          </div>
           <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="submit" class="btn btn-primary">Save</button>
-
-        </form>
-      </div>
-      
     </form>      
 
 </ng-template>

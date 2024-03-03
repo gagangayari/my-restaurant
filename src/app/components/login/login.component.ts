@@ -25,7 +25,6 @@ export class LoginComponent {
   * LoginStatus to check if the user is logged in
   */
   loginStatus: any = null;
-  errMsg : string = '';
 
   
   constructor(public authSvc: AuthService, private afAuth: AngularFireAuth){
@@ -38,14 +37,7 @@ export class LoginComponent {
     console.log("Form submission", usernae, password);
 
     
-    const user = this.authSvc.login(usernae, password)
-    .then((res) => console.log(res))
-    .catch((err) => {
-      console.log("err",err)
-      this.errMsg = err
-      alert("Wrong username or password")
-    }
-    );
+    this.authSvc.login(usernae, password);
 
     // console.log("Login status: " + loginStatus);
     

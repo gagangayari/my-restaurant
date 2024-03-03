@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Order } from 'src/app/Models/order.model';
 import {OrderSvcService} from '../../services/orders/order-svc.service'
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-order-page',
@@ -19,8 +18,7 @@ export class OrderPageComponent {
   //Order object
   order : Order;
 
-  constructor(private orderService : OrderSvcService,
-    private http: HttpClient){
+  constructor(private orderService : OrderSvcService){
 
   }
 
@@ -59,10 +57,7 @@ export class OrderPageComponent {
   }
 
   finallyProceed(){
-    console.log("Finally proceed");
-    
-
-    this.orderService.addOrder(this.order);
+    // this.orderService.addOrder();
 
   }
 
