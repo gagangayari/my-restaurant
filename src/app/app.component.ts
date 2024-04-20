@@ -16,15 +16,20 @@ export class AppComponent implements OnInit {
 
 
 
-  constructor(private dialog: MatDialog, private route: Router, public authSvc: AuthService){
+  constructor(
+    private dialog: MatDialog,
+    private router: Router,
+    public authSvc: AuthService){
   }
 
   ngOnInit(): void {
-    this.route.events.subscribe((val: any)=>{
+    this.router.events.subscribe((val: any)=>{
       // console.log("Event", val.url);
       localStorage.setItem(val.url, "yes");
+    
       
     })
+
 
   }
 

@@ -36,6 +36,7 @@ export class MenuItemDescComponent {
     }
 
     else{
+      this.dialogRef.close()
       this.router.navigate(['/order']);
     }
     

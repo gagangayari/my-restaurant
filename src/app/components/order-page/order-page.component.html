@@ -1,5 +1,5 @@
 
-<div class="accordion m-auto " id="accordionExample">
+<div class="accordion m-auto mw-50" id="accordionExample">
     <div class="accordion-item">
         <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -36,8 +36,7 @@
 
 <ng-template #customizeOrder>
     <div class="container">
-        <div class="row">
-        <div class="col-md-6 offset-md-3">
+        <div class="mw-100">
             <mat-card class="order-card">
             <mat-card-header>
                 <mat-card-title>Order Item</mat-card-title>
@@ -70,12 +69,11 @@
             </mat-card-actions>
             </mat-card>
         </div>
-        </div>
     </div>
 </ng-template>
 
 <ng-template #address>
-    <form #addressForm="ngForm" (ngSubmit)="submitAddress(addressForm)">
+    <form #addressForm="ngForm" (ngSubmit)="submitAddress(addressForm)" class="m-2">
         <div class="form-group">
           <label for="firstName">First Name</label>
           <input type="text" class="form-control" id="firstName" name="firstName" ngModel required>
@@ -116,7 +114,7 @@
 <ng-template #payment>
     <div class="container">
         <div class="row">
-          <div class="col-md-6 offset-md-3">
+          <div class="">
             <mat-card class="payment-card">
               <mat-card-header>
                 <mat-card-title>Select a payment method</mat-card-title>
